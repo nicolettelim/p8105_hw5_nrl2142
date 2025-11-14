@@ -1,0 +1,45 @@
+---
+title: "p8105_hw5_nrl2142"
+output: html_document
+date: "2025-11-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(rvest)
+set.seed(1)
+```
+
+# Problem 1
+
+```{r}
+shared_birthday = function(n){
+  birthdays = sample(1:365, n, replace = TRUE)
+  any(duplicated(birthdays))
+}
+
+groupsize = 2:50
+
+probabilities = data.frame(
+  groupsize = groupsize,
+  probability = NA_real_)
+
+for(i in seq_along(groupsize)) {
+  n = groupsize [i]
+  results = replicate (10000, shared_birthday(n))
+  probabilities$probability[i] = mean(results)
+}
+
+ggplot(probabilities, aes(x=groupsize, y = probability)) + 
+  geom_line() +
+  geom_point() +
+  labs(title = "Probability of Shared Birthday vs Group Size",
+       x = "Group Size",
+       y = "Probability of at least one shared birthday")
+```
+
+
