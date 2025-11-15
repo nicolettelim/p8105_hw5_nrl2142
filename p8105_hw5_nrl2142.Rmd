@@ -107,13 +107,13 @@ plot1
 plot2
 ```
 
-When 0 < true mu < 3, the sample average of muhat across tests for which is the null is rejected is NOT approximately equal to the true value of mu. However, when true mu > 3, the sample average of muhat across tests for which the null is rejected is approximately equal to the true value of mu. This occurs because of selection bias. When 0 <true mu < 3, the chance of detecting a real effect and rejecting the null is low, leading rejected samples to be biased towards overestimation of muhat. However, when true my >3, the test has enough power to the reject the null more frequently and thus we are more likely to produce muhat estimated close to the truemu. 
+When 0 < true mu < 3, the sample average of muhat across tests for which is the null is rejected is NOT approximately equal to the true value of mu. However, when true mu > 3, the sample average of muhat across tests for which the null is rejected is approximately equal to the true value of mu. This occurs because of selection bias. When 0 <true mu < 3, the chance of detecting a real effect and rejecting the null is low, leading rejected samples to be biased towards overestimation of muhat. However, when true mu >3, the test has enough power to the reject the null more frequently and thus we are more likely to produce muhat estimated close to the truemu. 
 
 # Problem 3
 
 The raw homicide data has 52179 observations of criminal homicides over the past decade in 50 of the largest American cities. The raw dataset has 12 variables: `uid`, `reported_date` (reported date of the homicide), `victim_last` (victim's last name), `victim_first` (victim's first name), `victim_race` (victim's race), `victim_age` (victim's age), `victim_sex` (victim's sex), `city` (city where the homicide occurred), `state` (state where the homicide occurred), `lat` (latitude), `lon` (longitude), `disposition` (status of the homicide case). 
 
-```{r}
+```{r, warning=FALSE}
 murder_df = read_csv(file = "homicide-data.csv") |>
   janitor::clean_names() |>
   mutate (city_state = stringr::str_c(city, state, sep = ", "))
