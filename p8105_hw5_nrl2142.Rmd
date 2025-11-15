@@ -39,6 +39,8 @@ ggplot(probabilities, aes(x=groupsize, y = probability)) +
        y = "Probability of at least one shared birthday")
 ```
 
+From the plot, it seems that as group size increases, the probability of at least one shared birthday also increases. However, the rate of increase begins to plateau around group size >50 as the probability approaches 1. 
+
 # Problem 2
 
 ```{r}
