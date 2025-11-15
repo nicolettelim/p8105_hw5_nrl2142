@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(rvest)
 library(broom)
+library(ggplot2)
 set.seed(1)
 ```
 
@@ -74,8 +75,8 @@ powerstats = results |>
 ggplot(powerstats, aes(x=mutrue, y = power)) +
   geom_line()+
   geom_point()+
-  labs(title = "Power vs. True Effect Size",
-       x = "True Effect Size",
+  labs(title = "Power vs. True Mean Value",
+       x = "True Mean Value",
        y = "Power")
 ```
 
